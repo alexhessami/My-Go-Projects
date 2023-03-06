@@ -41,7 +41,7 @@ func main() {
 		if data == 0 {
 			//Wait for one second if no input before continuing
 			time.Sleep(time.Second)
-			continue
+			break
 		}
 
 		//Write to the output stream
