@@ -22,15 +22,26 @@ func main() {
 
 	for {
 		//read from input stream
-		data, err := input.Read(buffer)
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			panic(err)
+		var total int
+		for total < *bufferSize {
+			data, err := input.Read(buffer[total:*bufferSize])
+			if err == io.EOF {
+				break
+			} else if err != nil {
+				panic(err)
+			}
+			total += data
 		}
 
 		//write to output stream
-		_, err = output.Write(buffer[:data])
+		var err error
+		for written := 0; written < total; {
+			data, err := output.Write(buffer[written:total])
+			if err != nil {
+				panic(err)
+			}
+			written += data
+		}
 		if err != nil {
 			panic(err)
 		}
