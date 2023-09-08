@@ -14,7 +14,7 @@ const (
     blkioPath = "/sys/fs/cgroup/blkio/"
     bytes = "blkio.throttle.io_service_bytes"
     readwrite = "blkio.throttle.io_serviced"
-    logInterval = 1 * time.Minute
+    logInterval = 5 * time.Minute
 )
 
 func main() {
