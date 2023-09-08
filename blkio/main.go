@@ -18,14 +18,11 @@ const (
 )
 
 func main() {
-    //Handle Ctrl+C signals
     sigChan := make(chan os.Signal, 1)
     signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
 
-    //Set frequency of pulling data
     ticker := time.NewTicker(logInterval)
 
-    //Data collection loop
     for {
         select {
         case <-ticker.C:
