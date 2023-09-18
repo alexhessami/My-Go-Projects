@@ -10,12 +10,12 @@ import (
 
 func main() {
 
-	interrupt := make(chan os.Signal, 1)
+    interrupt := make(chan os.Signal, 1)
     signal.Notify(interrupt, os.Interrupt, syscall.SIGTERM)
 
-  cleanup := func() {
+    cleanup := func() {
           os.Exit(0)
-    }
+      }
 
 
     // Create a new LXD client
