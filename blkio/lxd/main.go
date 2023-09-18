@@ -44,7 +44,7 @@ func main() {
                 fmt.Printf("Type: %s\n", volume.Type)
                 fmt.Printf("Size: %s\n", volume.Config["size"])
                 fmt.Println()
-		            return
+		return
             }
         }
     }
